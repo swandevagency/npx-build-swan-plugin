@@ -12,7 +12,9 @@ const distDirectory = path.join(`${process.cwd()}`, '.dist');
 const APIDirectory = path.join(`${process.cwd()}/src`, 'api');
 const modulesDirectory = path.join(`${process.cwd()}/src/database`, 'models');
 const pagesDirectory = path.join(`${process.cwd()}/src/database`, 'pages');
+const middlewaresDirectory = path.join(`${process.cwd()}/src/middlewares`, 'swan_middlewares');
 
+const packageJSON = `${process.cwd()}/package.json`;
 const swanConfig = `${process.cwd()}/swan-config.js`;
 
 //directories to copy
@@ -20,13 +22,19 @@ const swanConfig = `${process.cwd()}/swan-config.js`;
 const directoriesToCopy = [
     APIDirectory,
     modulesDirectory,
-    pagesDirectory
+    pagesDirectory,
+    middlewaresDirectory
 ];
 
 //commands
 
 const deleteDitsDirectory = "rm -rf .dist";
 const createDistDirectory = "mkdir .dist";
+const testApplicationCommand = `node server.js`;
+
+//making sure that the application runs without a problem
+
+runCommant(testApplicationCommand);
 
 //deleting the dist directory if it already exists
 
@@ -45,10 +53,11 @@ directoriesToCopy.forEach((directory) => {
     runCommant(copyDirectoryCommand);
 })
 
-// pasting the swan-config.js file
+// pasting the swan-config.js & package.json
 
 const copySwanConfig = `cp ${swanConfig} ${distDirectory}`;
+const copyPackageJSON = `cp ${packageJSON} ${distDirectory}`;
 
-runCommant(copySwanConfig)
-
+runCommant(copySwanConfig);
+runCommant(copyPackageJSON);
 
