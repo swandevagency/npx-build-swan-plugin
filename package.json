@@ -1,6 +1,6 @@
 {
   "name": "build-swan-plugin",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "bin": "./bin/cli/index.js",
   "description": "all rights belong to swan-cms",
   "main": "index.js",

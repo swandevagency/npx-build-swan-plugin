@@ -30,11 +30,6 @@ const directoriesToCopy = [
 
 const deleteDitsDirectory = "rm -rf .dist";
 const createDistDirectory = "mkdir .dist";
-const testApplicationCommand = `node server.js`;
-
-//making sure that the application runs without a problem
-
-runCommant(testApplicationCommand);
 
 //deleting the dist directory if it already exists
 
